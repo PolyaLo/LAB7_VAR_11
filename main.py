@@ -17,9 +17,12 @@ ax.xaxis.set_major_locator(ticker.MultipleLocator(5))
 ax.xaxis.set_minor_locator(ticker.MultipleLocator(1))
 ax2.xaxis.set_major_locator(ticker.MultipleLocator(2*np.pi))
 ax2.xaxis.set_minor_locator(ticker.MultipleLocator(np.pi))
+
 plt.legend()
 ax.grid(which='major',
-        color='blue')
+        color='skyblue')
 ax2.grid(which='major',
-         color='red')
+         color='lightcoral')
+ax2.grid(which='minor',
+         color='lightcoral')
 plt.show()
