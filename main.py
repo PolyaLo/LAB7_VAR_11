@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.axes_grid1 import host_subplot
+import matplotlib.ticker as ticker
 # функция
 y_1 = lambda x: np.sinc(x)
 y_2 = lambda x: np.sinc(x / np.pi)
@@ -13,12 +13,13 @@ ax2.set_xticklabels([r"$-6\pi$", r"$-4\pi$", r"$-2\pi$","$0$", r"$2\pi$",
 x = np.linspace(-20, 20, 200)
 plt.plot(x, y_1(x), label=r'$\frac{\sin(x\pi)}{x\pi}$', color='blue')
 plt.plot(x, y_2(x), label=r'$\frac{\sin(x)}{x}$', color='red')
+ax.xaxis.set_major_locator(ticker.MultipleLocator(5))
+ax.xaxis.set_minor_locator(ticker.MultipleLocator(1))
+ax2.xaxis.set_major_locator(ticker.MultipleLocator(2*np.pi))
+ax2.xaxis.set_minor_locator(ticker.MultipleLocator(np.pi))
 plt.legend()
 ax.grid(which='major',
         color='blue')
 ax2.grid(which='major',
          color='red')
-ax.minorticks_on()
-ax.xaxis.set_minor_locator(ticker.MultipleLocator(1))
-ax2.minorticks_on()
 plt.show()
